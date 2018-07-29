@@ -55,11 +55,13 @@ class TransactionController extends Controller
         if( is_null( $user_id ) || is_null( $account_id ) ){
             return $this->sendError([],['WE except <user_id> and <account_id> ']);
         }
-
+        if( empty( $request['title'] ) )    $request['title']   = "Default Title";
+        if( empty( $request['ammount'] ) )  $request['ammount'] = "0";
+        
         $saveFakeData = Transaction::create([
             'account_id' => $request['account_id'],
-            'title'     => $request['title'],
-            'ammount'   => $request['ammount']
+            'title'      => $request['title'],
+            'ammount'    => $request['ammount']
         ]);
 
         if(!$saveFakeData){
@@ -79,7 +81,7 @@ class TransactionController extends Controller
             'results'=>[
                 'data'=>$saveFakeData
             ]
-        ],['Transaction extracted successfully']);
+        ],['Transaction created successfully']);
     }
     /**
      * Delete an transactions under the account

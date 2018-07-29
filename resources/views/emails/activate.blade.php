@@ -12,7 +12,7 @@
         <br/>
             Your account with email {{$user->email}} should be actived before you use it.
         <br/>
-            Please click on the link for active it:  <a href="https://personal-bank.firebaseapp.com/#/active/{{$user->token}}">Go</a>
+            Please click on the link for active it:  <a href="https://personal-bank.firebaseapp.com/active/{{$user->token}}">Go</a>
         <br>
         Thank you.
 
